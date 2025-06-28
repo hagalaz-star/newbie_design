@@ -32,10 +32,15 @@ body {
   padding-left: 40px;
   padding-right: 40px;
 }
-.card-content > h2 {
+.card-content > h1 {
   text-align: center;
   font-family: "Red Hat Display", sans-serif;
   font-weight: 1000;
+}
+
+.card-content .plan-text .plan-name {
+  font-weight: 800;
+  color: black;
 }
 
 .card-content .text-content > p {
@@ -117,4 +122,4 @@ body {
   cursor: pointer;
   color: black;
   font-weight: 1000;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
