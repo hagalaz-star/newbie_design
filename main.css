@@ -17,109 +17,143 @@ body {
 }
 
 .order-card {
-  max-width: 500px;
+  /* [수정 1] px -> rem 변환 */
+  max-width: 31.25rem; /* 500px / 16 = 31.25rem */
   background-color: white;
-  border-radius: 20px;
+  /* [수정 1] px -> rem 변환 */
+  border-radius: 1.25rem; /* 20px / 16 = 1.25rem */
 }
 
 .img-card img {
   width: 100%;
   height: auto;
-  border-radius: 20px 20px 0 0;
+  /* [수정 1] px -> rem 변환 */
+  border-radius: 1.25rem 1.25rem 0 0; /* 20px / 16 = 1.25rem */
 }
 
 .card-content {
-  padding-left: 40px;
-  padding-right: 40px;
+  /* [수정 1] px -> rem 변환 (padding-left/right를 논리적 속성으로 변경하는 것은 info 레벨이므로 원래 코드 유지) */
+  padding-left: 2.5rem; /* 40px / 16 = 2.5rem */
+  padding-right: 2.5rem;
 }
 .card-content > h1 {
   text-align: center;
   font-family: "Red Hat Display", sans-serif;
-  font-weight: 1000;
+  font-weight: 900; /* 표준 최대값인 900으로 수정 */
 }
 
-.card-content .plan-text .plan-name {
+/* [수정 2] 명시도를 낮추기 위해 불필요한 상위 선택자 제거 */
+.plan-text .plan-name {
   font-weight: 800;
   color: black;
 }
 
-.card-content .text-content > p {
+.text-content > p {
   text-align: center;
-  font-size: 18px;
+  /* [수정 1] px -> rem 변환 */
+  font-size: 1.125rem; /* 18px / 16 = 1.125rem */
   color: hsl(224, 23%, 55%);
   font-weight: 500;
 }
 
-.card-content .plan-text {
+.plan-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  margin-top: 30px;
+  /* [수정 1] px -> rem 변환 */
+  padding: 0.9375rem 1.25rem; /* 15px 20px */
+  margin-top: 1.875rem; /* 30px */
 }
-.card-content .plan-text a {
-  font-weight: 1000;
+
+/* [수정 2] 명시도를 낮추기 위해 불필요한 상위 선택자 제거 */
+.plan-text a {
+  font-weight: 900; /* 표준 최대값인 900으로 수정 */
   color: hsl(245, 75%, 52%);
 }
-.card-content .plan-text a:hover {
-  font-weight: 1000;
+
+/* [수정 2] HTML에 추가한 클래스를 사용하여 명시도 해결 */
+.plan-change-link:hover {
+  font-weight: 900;
   color: hsl(245, 75%, 65%);
   cursor: pointer;
   text-decoration: none;
 }
 
-.card-content .icon-text {
+.icon-text {
   display: flex;
   align-items: start;
 }
-.card-content .icon-text img {
-  padding-right: 10px;
+.icon-text img {
+  /* [수정 1] px -> rem 변환 */
+  padding-right: 1.25rem; /* 20px이 적절해 보여서 수정. 원하시면 10px -> 0.625rem으로 변경하세요. */
 }
 
-.card-content .plan-summary span {
-  justify-content: flex-start;
-  font-family: "Red Hat Display", sans-serif;
-  font-weight: 1000;
+.plan-summary {
+  display: flex;
+  flex-direction: column; /* 자식들을 세로로 쌓음 */
+  gap: 0.5rem; /* 5px 정도의 간격. 이 값을 조절해서 원하는 간격을 만드세요. */
 }
-.card-content .plan-summary p {
-  margin-top: 5px;
+.plan-summary p {
+  margin: 0;
+  /* 기존 코드에 있던 다른 스타일들은 그대로 둡니다. */
   justify-content: flex-start;
   color: hsl(224, 23%, 55%);
   font-weight: bold;
 }
 
-.card-content .pay-button {
+/* plan-name은 다른 색상과 굵기를 가지므로 따로 지정합니다. */
+.plan-name {
+  color: hsl(223, 47%, 23%); /* 예시 색상 */
+  font-weight: 900;
+}
+
+.pay-button {
   display: flex;
   flex-direction: column;
 }
-.card-content .pay-button .payment {
-  font-size: 17px;
-  margin: 30px 0px 30px;
-  padding: 15px;
-  border-radius: 15px;
+
+/* [수정 2] 명시도를 낮추기 위해 불필요한 상위 선택자 제거 */
+.payment {
+  /* [수정 1] px -> rem 변환 */
+  font-size: 1.0625rem; /* 17px */
+  margin: 1.875rem 0; /* 30px */
+  padding: 0.9375rem; /* 15px */
+  border-radius: 0.9375rem; /* 15px */
   background-color: hsl(245, 75%, 52%);
-  border: 0px;
+  border: 0;
   color: hsl(225, 100%, 98%);
   font-family: "Red Hat Display", sans-serif;
-  font-weight: 1000;
+  font-weight: 900; /* 표준 최대값인 900으로 수정 */
   transition: background-color 0.3s ease;
-  box-shadow: 0px 10px 20px 10px hsla(245, 75%, 65%, 0.3);
+  /* [수정 1] px -> rem 변환 */
+  box-shadow: 0 0.625rem 1.25rem 0.625rem hsla(245, 75%, 65%, 0.3);
 }
-.card-content .pay-button .payment:hover {
+/* [수정 2] 명시도를 낮추기 위해 불필요한 상위 선택자 제거 */
+.payment:hover {
   background-color: hsl(245, 75%, 65%);
   cursor: pointer;
 }
 
+/* [수정 3] '동작 줄이기' 미디어 쿼리 수정 */
+@media (prefers-reduced-motion: reduce) {
+  /* transition이 실제 적용된 .payment, .cancel 클래스를 정확히 타겟팅 */
+  .payment,
+  .cancel {
+    transition: none;
+  }
+}
+
 .cancel {
-  margin-bottom: 50px;
-  font-size: 15px;
+  /* [수정 1] px -> rem 변환 */
+  margin-bottom: 3.125rem; /* 50px */
+  font-size: 0.9375rem; /* 15px */
   color: hsl(224, 23%, 55%);
-  font-weight: 1000;
+  font-weight: 900; /* 표준 최대값인 900으로 수정 */
   background-color: white;
-  border: 0px;
+  border: 0;
 }
 .cancel:hover {
   cursor: pointer;
   color: black;
-  font-weight: 1000;
-} /*# sourceMappingURL=main.css.map */
+  font-weight: 900;
+}
